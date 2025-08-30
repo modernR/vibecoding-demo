@@ -1,0 +1,208 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#f8fafc" stroke="none"/>
+  
+  <!-- 제목 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">
+    TODO 웹 애플리케이션 시스템 아키텍처
+  </text>
+  
+  <!-- 1단계: 클라이언트 영역 -->
+  <g id="client-tier">
+    <!-- 클라이언트 컨테이너 -->
+    <rect x="50" y="80" width="700" height="200" rx="10" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="70" y="105" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">
+      클라이언트 (브라우저)
+    </text>
+    
+    <!-- React 애플리케이션 영역 -->
+    <rect x="70" y="120" width="660" height="140" rx="8" fill="#eff6ff" stroke="#60a5fa" stroke-width="1"/>
+    <text x="90" y="145" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e40af">
+      React 애플리케이션
+    </text>
+    
+    <!-- UI 컴포넌트 -->
+    <rect x="90" y="160" width="180" height="80" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="100" y="180" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e40af">
+      UI 컴포넌트
+    </text>
+    <text x="100" y="200" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • TodoInput
+    </text>
+    <text x="100" y="215" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • TodoList
+    </text>
+    <text x="100" y="230" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • TodoFilters
+    </text>
+    
+    <!-- 상태 관리 -->
+    <rect x="290" y="160" width="180" height="80" rx="5" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="300" y="180" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#166534">
+      상태 관리
+    </text>
+    <text x="300" y="200" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • React Context
+    </text>
+    <text x="300" y="215" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • useReducer
+    </text>
+    <text x="300" y="230" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • Custom Hooks
+    </text>
+    
+    <!-- 로컬 스토리지 (1단계) -->
+    <rect x="490" y="160" width="220" height="80" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <text x="500" y="180" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#92400e">
+      데이터 저장 (1단계)
+    </text>
+    <text x="500" y="200" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • 로컬 스토리지
+    </text>
+    <text x="500" y="215" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • JSON 형태 저장
+    </text>
+    <text x="500" y="230" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • 브라우저 지속성
+    </text>
+  </g>
+  
+  <!-- 연결선 (1단계 → 2단계) -->
+  <g id="connection">
+    <line x1="400" y1="300" x2="400" y2="340" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+    <polygon points="395,335 400,345 405,335" fill="#6b7280"/>
+    <text x="420" y="325" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">
+      2단계에서 연결
+    </text>
+  </g>
+  
+  <!-- 2단계: AWS 클라우드 영역 -->
+  <g id="aws-tier">
+    <!-- AWS 클라우드 컨테이너 -->
+    <rect x="50" y="360" width="700" height="200" rx="10" fill="#ffffff" stroke="#ff9500" stroke-width="2"/>
+    <text x="70" y="385" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">
+      AWS 클라우드 (2단계)
+    </text>
+    
+    <!-- API Gateway -->
+    <rect x="90" y="410" width="150" height="60" rx="5" fill="#fff7ed" stroke="#ea580c" stroke-width="1"/>
+    <text x="100" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#c2410c">
+      API Gateway
+    </text>
+    <text x="100" y="450" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • RESTful API
+    </text>
+    <text x="100" y="465" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • CORS 설정
+    </text>
+    
+    <!-- Lambda Functions -->
+    <rect x="270" y="410" width="150" height="60" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+    <text x="280" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#991b1b">
+      Lambda Functions
+    </text>
+    <text x="280" y="450" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • CRUD 로직
+    </text>
+    <text x="280" y="465" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • Node.js (TS)
+    </text>
+    
+    <!-- DynamoDB -->
+    <rect x="450" y="410" width="150" height="60" rx="5" fill="#f0f9ff" stroke="#0284c7" stroke-width="1"/>
+    <text x="460" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0c4a6e">
+      DynamoDB
+    </text>
+    <text x="460" y="450" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • NoSQL DB
+    </text>
+    <text x="460" y="465" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • 사용자별 분리
+    </text>
+    
+    <!-- AWS Cognito -->
+    <rect x="270" y="490" width="260" height="50" rx="5" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1"/>
+    <text x="280" y="510" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#5b21b6">
+      AWS Cognito (사용자 인증)
+    </text>
+    <text x="280" y="525" font-family="Arial, sans-serif" font-size="11" fill="#374151">
+      • JWT 토큰 • 로그인/회원가입 • 사용자 관리
+    </text>
+  </g>
+  
+  <!-- 내부 연결선들 -->
+  <g id="internal-connections">
+    <!-- UI → 상태 관리 -->
+    <line x1="270" y1="200" x2="290" y2="200" stroke="#6b7280" stroke-width="1"/>
+    <polygon points="285,195 290,200 285,205" fill="#6b7280"/>
+    
+    <!-- 상태 관리 → 로컬 스토리지 -->
+    <line x1="470" y1="200" x2="490" y2="200" stroke="#6b7280" stroke-width="1"/>
+    <polygon points="485,195 490,200 485,205" fill="#6b7280"/>
+    
+    <!-- API Gateway → Lambda -->
+    <line x1="240" y1="440" x2="270" y2="440" stroke="#6b7280" stroke-width="1"/>
+    <polygon points="265,435 270,440 265,445" fill="#6b7280"/>
+    
+    <!-- Lambda → DynamoDB -->
+    <line x1="420" y1="440" x2="450" y2="440" stroke="#6b7280" stroke-width="1"/>
+    <polygon points="445,435 450,440 445,445" fill="#6b7280"/>
+    
+    <!-- Lambda → Cognito -->
+    <line x1="345" y1="470" x2="345" y2="490" stroke="#6b7280" stroke-width="1"/>
+    <polygon points="340,485 345,490 350,485" fill="#6b7280"/>
+  </g>
+  
+  <!-- 기술 스택 라벨 -->
+  <g id="tech-labels">
+    <!-- 프론트엔드 기술 -->
+    <text x="620" y="140" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">
+      React 18 + Vite
+    </text>
+    <text x="620" y="155" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">
+      Tailwind CSS
+    </text>
+    
+    <!-- 백엔드 기술 -->
+    <text x="620" y="400" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">
+      AWS CDK
+    </text>
+    <text x="620" y="415" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">
+      서버리스
+    </text>
+  </g>
+  
+  <!-- 배포 전략 표시 -->
+  <g id="deployment">
+    <rect x="620" y="480" width="120" height="60" rx="5" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="630" y="500" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">
+      배포 전략
+    </text>
+    <text x="630" y="515" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">
+      1단계: GitHub Pages
+    </text>
+    <text x="630" y="530" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">
+      2단계: AWS CloudFormation
+    </text>
+  </g>
+  
+  <!-- 범례 -->
+  <g id="legend">
+    <rect x="50" y="570" width="700" height="25" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="60" y="585" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">
+      범례:
+    </text>
+    <rect x="100" y="578" width="15" height="10" fill="#3b82f6"/>
+    <text x="120" y="587" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      1단계 (프론트엔드)
+    </text>
+    <rect x="220" y="578" width="15" height="10" fill="#ff9500"/>
+    <text x="240" y="587" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      2단계 (AWS 백엔드)
+    </text>
+    <line x1="350" y1="583" x2="370" y2="583" stroke="#6b7280" stroke-width="2" stroke-dasharray="3,3"/>
+    <text x="375" y="587" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      향후 연결
+    </text>
+  </g>
+</svg>
