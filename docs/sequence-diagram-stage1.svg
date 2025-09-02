@@ -1,0 +1,211 @@
+<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 -->
+  <rect width="900" height="700" fill="#f8fafc" stroke="none"/>
+  
+  <!-- 제목 -->
+  <text x="450" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">
+    1단계: 로컬 스토리지 기반 TODO 요청 처리 시퀀스
+  </text>
+  
+  <!-- 참여자들 -->
+  <g id="participants">
+    <!-- 사용자 -->
+    <rect x="50" y="60" width="80" height="40" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="90" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e40af">
+      사용자
+    </text>
+    
+    <!-- UI 컴포넌트 -->
+    <rect x="180" y="60" width="100" height="40" rx="5" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <text x="230" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#166534">
+      UI 컴포넌트
+    </text>
+    
+    <!-- React Context -->
+    <rect x="330" y="60" width="100" height="40" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="380" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#92400e">
+      React Context
+    </text>
+    
+    <!-- Reducer -->
+    <rect x="480" y="60" width="80" height="40" rx="5" fill="#fed7d7" stroke="#e53e3e" stroke-width="2"/>
+    <text x="520" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#c53030">
+      Reducer
+    </text>
+    
+    <!-- 로컬 스토리지 -->
+    <rect x="610" y="60" width="100" height="40" rx="5" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+    <text x="660" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#4338ca">
+      로컬 스토리지
+    </text>
+    
+    <!-- Custom Hooks -->
+    <rect x="760" y="60" width="100" height="40" rx="5" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="810" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#5b21b6">
+      Custom Hooks
+    </text>
+  </g>
+  
+  <!-- 생명선 -->
+  <g id="lifelines" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3,3">
+    <line x1="90" y1="100" x2="90" y2="650"/>
+    <line x1="230" y1="100" x2="230" y2="650"/>
+    <line x1="380" y1="100" x2="380" y2="650"/>
+    <line x1="520" y1="100" x2="520" y2="650"/>
+    <line x1="660" y1="100" x2="660" y2="650"/>
+    <line x1="810" y1="100" x2="810" y2="650"/>
+  </g>
+  
+  <!-- TODO 생성 시퀀스 -->
+  <g id="create-todo-sequence">
+    <!-- 제목 -->
+    <rect x="20" y="120" width="860" height="25" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+    <text x="30" y="137" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e40af">
+      TODO 생성 요청 처리
+    </text>
+    
+    <!-- 1. 사용자 → UI -->
+    <line x1="90" y1="160" x2="230" y2="160" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="120" y="155" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      TODO 입력 및 제출
+    </text>
+    
+    <!-- 2. UI → Context -->
+    <line x1="230" y1="180" x2="380" y2="180" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="260" y="175" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      dispatch(ADD_TODO)
+    </text>
+    
+    <!-- 3. Context → Reducer -->
+    <line x1="380" y1="200" x2="520" y2="200" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="410" y="195" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      action 처리
+    </text>
+    
+    <!-- 4. Reducer 내부 처리 -->
+    <rect x="490" y="220" width="60" height="40" fill="#fed7d7" stroke="#e53e3e" stroke-width="1"/>
+    <text x="520" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#c53030">
+      새 TODO
+    </text>
+    <text x="520" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#c53030">
+      객체 생성
+    </text>
+    <text x="520" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#c53030">
+      (id, timestamp)
+    </text>
+    
+    <!-- 5. Reducer → Context -->
+    <line x1="520" y1="280" x2="380" y2="280" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <text x="410" y="275" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      업데이트된 state
+    </text>
+    
+    <!-- 6. Context → Hooks -->
+    <line x1="380" y1="300" x2="810" y2="300" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="550" y="295" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      useLocalStorage 호출
+    </text>
+    
+    <!-- 7. Hooks → 로컬 스토리지 -->
+    <line x1="810" y1="320" x2="660" y2="320" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="700" y="315" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      JSON.stringify로 저장
+    </text>
+    
+    <!-- 8. 로컬 스토리지 → Hooks -->
+    <line x1="660" y1="340" x2="810" y2="340" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <text x="700" y="335" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      저장 완료
+    </text>
+    
+    <!-- 9. Hooks → Context -->
+    <line x1="810" y1="360" x2="380" y2="360" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <text x="550" y="355" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      저장 상태 반환
+    </text>
+    
+    <!-- 10. Context → UI -->
+    <line x1="380" y1="380" x2="230" y2="380" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <text x="260" y="375" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      새로운 state 전달
+    </text>
+    
+    <!-- 11. UI → 사용자 -->
+    <line x1="230" y1="400" x2="90" y2="400" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <text x="120" y="395" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      UI 업데이트 (새 TODO 표시)
+    </text>
+  </g>
+  
+  <!-- TODO 상태 토글 시퀀스 -->
+  <g id="toggle-todo-sequence">
+    <!-- 제목 -->
+    <rect x="20" y="440" width="860" height="25" fill="#f0fdf4" stroke="#22c55e" stroke-width="1"/>
+    <text x="30" y="457" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#166534">
+      TODO 상태 토글 요청 처리
+    </text>
+    
+    <!-- 1. 사용자 → UI -->
+    <line x1="90" y1="480" x2="230" y2="480" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="120" y="475" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      체크박스 클릭
+    </text>
+    
+    <!-- 2. UI → Context -->
+    <line x1="230" y1="500" x2="380" y2="500" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="250" y="495" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      dispatch(TOGGLE_TODO_STATUS)
+    </text>
+    
+    <!-- 3. Context → Reducer -->
+    <line x1="380" y1="520" x2="520" y2="520" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="410" y="515" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      상태 토글 처리
+    </text>
+    
+    <!-- 4. Reducer 내부 처리 -->
+    <rect x="490" y="540" width="60" height="30" fill="#fed7d7" stroke="#e53e3e" stroke-width="1"/>
+    <text x="520" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#c53030">
+      status 변경
+    </text>
+    <text x="520" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#c53030">
+      pending ↔ completed
+    </text>
+    
+    <!-- 5-8. 나머지 단계들 (간소화) -->
+    <line x1="520" y1="580" x2="380" y2="580" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <line x1="380" y1="590" x2="810" y2="590" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="810" y1="600" x2="660" y2="600" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="660" y1="610" x2="810" y2="610" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <line x1="810" y1="620" x2="380" y2="620" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <line x1="380" y1="630" x2="230" y2="630" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <line x1="230" y1="640" x2="90" y2="640" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  </g>
+  
+  <!-- 화살표 마커 정의 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+    </marker>
+  </defs>
+  
+  <!-- 범례 -->
+  <g id="legend">
+    <rect x="50" y="665" width="800" height="30" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="60" y="680" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">
+      범례:
+    </text>
+    <line x1="100" y1="675" x2="120" y2="675" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="125" y="679" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      요청
+    </text>
+    <line x1="160" y1="675" x2="180" y2="675" stroke="#374151" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="185" y="679" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      응답
+    </text>
+    <rect x="220" y="672" width="20" height="10" fill="#fed7d7" stroke="#e53e3e" stroke-width="1"/>
+    <text x="245" y="679" font-family="Arial, sans-serif" font-size="10" fill="#374151">
+      내부 처리
+    </text>
+  </g>
+</svg>
